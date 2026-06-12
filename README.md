@@ -204,17 +204,15 @@
 
     <div class="stage">
       <!--
-        ===== SWAP YOUR MODEL HERE =====
-        src       -> your .glb / .gltf file (Android + in-page 3D)
-        ios-src   -> your .usdz file        (iOS AR Quick Look)
-        Both files must be hosted on the same site (or any public URL).
-        Replace the two demo URLs below with your own.
+        ===== YOUR MASCOT STANDEE =====
+        src -> bear_standee.glb  (upload this file into the same repo as this page)
+        No ios-src needed: model-viewer auto-generates the iOS AR file from the .glb.
+        To swap models later, just replace bear_standee.glb (or change src below).
       -->
       <model-viewer
         id="viewer"
-        src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-        ios-src="https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
-        alt="A 3D model you can view in augmented reality"
+        src="bear_standee.glb"
+        alt="Our mascot bear, life-size, viewable in augmented reality"
         ar
         ar-modes="webxr scene-viewer quick-look"
         ar-placement="floor"
