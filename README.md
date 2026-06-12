@@ -205,13 +205,14 @@
     <div class="stage">
       <!--
         ===== YOUR MASCOT STANDEE =====
-        src -> bear_standee.glb  (upload this file into the same repo as this page)
-        No ios-src needed: model-viewer auto-generates the iOS AR file from the .glb.
-        To swap models later, just replace bear_standee.glb (or change src below).
+        src -> the bear's public URL on your GitHub site (same as how the
+        astronaut linked to Google's hosted file, just on your own domain).
+        The bear_standee.glb file must be uploaded into your repo once so this
+        URL resolves. To swap models later, change the URL below.
       -->
       <model-viewer
         id="viewer"
-        src="bear_standee.glb"
+        src="https://bretttedford.github.io/bear_standee.glb"
         alt="Our mascot bear, life-size, viewable in augmented reality"
         ar
         ar-modes="webxr scene-viewer quick-look"
