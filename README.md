@@ -162,6 +162,31 @@
       padding: 4px 0 18px;
     }
 
+    /* Surface-finding prompt shown while AR looks for a floor plane */
+    .ar-prompt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      text-align: center;
+      padding: 14px 18px;
+      background: rgba(12, 10, 20, 0.62);
+      backdrop-filter: blur(6px);
+      border-radius: 14px;
+    }
+    .ar-prompt svg { animation: sweep 1.6s ease-in-out infinite; }
+    @keyframes sweep {
+      0%, 100% { transform: translateX(-7px); }
+      50%      { transform: translateX(7px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ar-prompt svg { animation: none; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .ar-button { transition: none; }
     }
@@ -192,6 +217,7 @@
         alt="A 3D model you can view in augmented reality"
         ar
         ar-modes="webxr scene-viewer quick-look"
+        ar-placement="floor"
         ar-scale="auto"
         camera-controls
         auto-rotate
@@ -215,6 +241,20 @@
             <path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/>
           </svg>
           Drag to rotate
+        </div>
+
+        <!--
+          Surface-finding cue. model-viewer shows this (in WebXR mode) while it
+          hunts for a floor plane to snap the model onto. Scene Viewer and
+          Quick Look show their own native surface guidance automatically.
+        -->
+        <div slot="ar-prompt" class="ar-prompt">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="7" y="2" width="10" height="16" rx="2"/>
+            <path d="M11 5h2"/>
+            <path d="M2 14l3 3-3 3"/><path d="M22 14l-3 3 3 3"/>
+          </svg>
+          <span>Move your phone to find the floor</span>
         </div>
       </model-viewer>
     </div>
